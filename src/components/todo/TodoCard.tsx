@@ -8,9 +8,10 @@ export type TTodoCardProps = {
     title: string;
     description: string;
     isCompleted: boolean;
+    priority: string
 }
 
-const TodoCard = ({title, description, id, isCompleted }: TTodoCardProps ) =>{
+const TodoCard = ({title, description, id, isCompleted, priority }: TTodoCardProps ) =>{
     const dispatch = useAppDispatch()
 
     //
@@ -30,6 +31,7 @@ const TodoCard = ({title, description, id, isCompleted }: TTodoCardProps ) =>{
                 }
             </div>
             <p>{description}</p>
+            <p>{priority}</p>
             <div className="space-x-5">
                 <Button onClick={() => dispatch(removeTodo(id))} className="bg-red-500"><Trash2 /></Button>
                 <Button className="bg-[#5C53FE]"><SquarePen /></Button>
