@@ -3,29 +3,41 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useAddTodoMutation } from "@/redux/api/api"
 import { addTodo } from "@/redux/features/todoSlice"
-import { useAppDispatch } from "@/redux/hooks"
+// import { useAppDispatch } from "@/redux/hooks"
 import { DialogClose } from "@radix-ui/react-dialog"
 import { FormEvent, useState } from "react"
 
 const AddTodoModal = () =>{
     const [task, setTask] = useState("")
     const [description, setDescription] = useState("")
-    const dispatch = useAppDispatch()
+    //For local state management
+    // const dispatch = useAppDispatch()
+
+    //for server state
+    // [actualFunctionForPost, {data, isLoading, isError, isSuccess}]
+    const [addTodo, {data, isLoading, isError, isSuccess}] = useAddTodoMutation()
+
+    console.log({data, isLoading, isError, isSuccess});
 
     //Handle Submit
     const handleSubmit = (e: FormEvent) =>{
         e.preventDefault()
 
-        const randomString = Math.random().toString(36).substring(2, 7)
+        // const randomString = Math.random().toString(36).substring(2, 7)
 
         const taskDetails = {
-          id: randomString,
+          // id: randomString,
           title: task,
           description: description
         }
 
-        dispatch(addTodo(taskDetails))
+        //for local state
+        // dispatch(addTodo(taskDetails))
+
+        // for server state 
+        addTodo(taskDetails)
     }
 
 
