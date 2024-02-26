@@ -36,7 +36,7 @@ const AddTodoModal = () =>{
           priority,
         }
 
-        console.log(taskDetails);
+        console.log("inside handle sumit =>", taskDetails);
 
         //for local state
         // dispatch(addTodo(taskDetails))
