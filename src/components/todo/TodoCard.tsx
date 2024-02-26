@@ -38,7 +38,7 @@ const TodoCard = ({title, description, id, isCompleted, priority }: TTodoCardPro
                 <p className="text-red-500">Pending</p>
                 }
             </div>
-            <p>{description}</p>
+            <p className="flex-1">{description}</p>
             <div className="space-x-5">
                 <Button onClick={() => dispatch(removeTodo(id))} className="bg-red-500"><Trash2 /></Button>
                 <Button className="bg-[#5C53FE]"><SquarePen /></Button>
