@@ -20,7 +20,7 @@ const AddTodoModal = () =>{
     // [actualFunctionForPost, {data, isLoading, isError, isSuccess}]
     const [addTodo, {data, isLoading, isError, isSuccess}] = useAddTodoMutation()
 
-    console.log({data, isLoading, isError, isSuccess});
+    // console.log({data, isLoading, isError, isSuccess});
 
     //Handle Submit
     const handleSubmit = (e: FormEvent) =>{
@@ -36,7 +36,7 @@ const AddTodoModal = () =>{
           priority,
         }
 
-        console.log("inside handle sumit =>", taskDetails);
+        // console.log("inside handle sumit =>", taskDetails);
 
         //for local state
         // dispatch(addTodo(taskDetails))
